@@ -1,9 +1,3 @@
-<<<<<<< HEAD
 Manifest-Version: 1.0
 Main-Class: io.codeforall.heapsdontlie.Main
 
-=======
-Manifest-Version: 1.0
-Main-Class: io.codeforall.heapsdontlie.Main
-
->>>>>>> cb4acbfd159f4e53918b65ff13367474b671b6e0
