@@ -1,6 +1,5 @@
 package io.codeforall.heapsdontlie;
 
-import io.codeforall.heapsdontlie.key.Key;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
@@ -11,6 +10,8 @@ public class NamePlayer implements KeyboardHandler {
 
     private int counter;
     private String name;
+
+    private Picture[] pictures = new Picture[3];
 
     public NamePlayer() {
         counter = 0;
@@ -162,113 +163,87 @@ public class NamePlayer implements KeyboardHandler {
 
     @Override
     public void keyPressed(KeyboardEvent keyboardEvent) {
-        if (counter < 3) {
+        Picture picture;
+        if (isFinish()) {
             switch (keyboardEvent.getKey()) {
                 case KeyboardEvent.KEY_Q:
-                    this.name = (name + "q");
-                    Picture picture = new Picture((250+(counter*50)),30, ("/KeyHealth/key-green-q.png"));
-                    picture.draw();
-                    counter++;
+                    keyChosen('q');
                     break;
                 case KeyboardEvent.KEY_W:
-                    this.name = (name + "w");
-                    counter++;
+                    keyChosen('w');
                     break;
                 case KeyboardEvent.KEY_E:
-                    this.name = (name + "e");
-                    counter++;
+                    keyChosen('e');
                     break;
                 case KeyboardEvent.KEY_R:
-                    this.name = (name + "r");
-                    counter++;
+                    keyChosen('r');
                     break;
                 case KeyboardEvent.KEY_T:
-                    this.name = (name + "t");
+                    keyChosen('t');
                     counter++;
                     break;
                 case KeyboardEvent.KEY_Y:
-                    this.name = (name + "y");
-                    counter++;
+                    keyChosen('y');
                     break;
                 case KeyboardEvent.KEY_U:
-                    this.name = (name + "u");
-                    counter++;
+                    keyChosen('u');
                     break;
                 case KeyboardEvent.KEY_I:
-                    this.name = (name + "i");
-                    counter++;
+                    keyChosen('i');
                     break;
                 case KeyboardEvent.KEY_O:
-                    this.name = (name + "o");
-                    counter++;
+                    keyChosen('o');
                     break;
                 case KeyboardEvent.KEY_P:
-                    this.name = (name + "p");
-                    counter++;
+                    keyChosen('p');
                     break;
                 case KeyboardEvent.KEY_A:
-                    this.name = (name + "a");
-                    counter++;
+                    keyChosen('a');
                     break;
                 case KeyboardEvent.KEY_S:
-                    this.name = (name + "s");
-                    counter++;
+                    keyChosen('s');
                     break;
                 case KeyboardEvent.KEY_D:
-                    this.name = (name + "d");
-                    counter++;
+                    keyChosen('d');
                     break;
                 case KeyboardEvent.KEY_F:
-                    this.name = (name + "f");
-                    counter++;
+                    keyChosen('f');
                     break;
                 case KeyboardEvent.KEY_G:
-                    this.name = (name + "g");
-                    counter++;
+                    keyChosen('g');
                     break;
                 case KeyboardEvent.KEY_H:
-                    this.name = (name + "h");
-                    counter++;
+                    keyChosen('h');
                     break;
                 case KeyboardEvent.KEY_J:
-                    this.name = (name + "j");
-                    counter++;
+                    keyChosen('j');
                     break;
                 case KeyboardEvent.KEY_K:
-                    this.name = (name + "k");
-                    counter++;
+                    keyChosen('k');
                     break;
                 case KeyboardEvent.KEY_L:
-                    this.name = (name + "l");
-                    counter++;
+                    keyChosen('l');
                     break;
                 case KeyboardEvent.KEY_Z:
-                    this.name = (name + "z");
-                    counter++;
+                    keyChosen('z');
                     break;
                 case KeyboardEvent.KEY_X:
-                    this.name = (name + "x");
-                    counter++;
+                    keyChosen('x');
                     break;
                 case KeyboardEvent.KEY_C:
-                    this.name = (name + "c");
-                    counter++;
+                    keyChosen('c');
                     break;
                 case KeyboardEvent.KEY_V:
-                    this.name = (name + "v");
-                    counter++;
+                    keyChosen('v');
                     break;
                 case KeyboardEvent.KEY_B:
-                    this.name = (name + "b");
-                    counter++;
+                    keyChosen('b');
                     break;
                 case KeyboardEvent.KEY_N:
-                    this.name = (name + "n");
-                    counter++;
+                    keyChosen('n');
                     break;
                 case KeyboardEvent.KEY_M:
-                    this.name = (name + "m");
-                    counter++;
+                    keyChosen('m');
                     break;
 
                 case KeyboardEvent.KEY_ENTER:
@@ -278,13 +253,20 @@ public class NamePlayer implements KeyboardHandler {
                     break;
             }
         }
-      /*  if(counter > 5) {
-            try {
-                this.finalize();
-            } catch (Throwable e) {
-                throw new RuntimeException(e);
-            }
-        }*/
+    }
+
+    private void keyChosen(char c) {
+        this.name = (name + c);
+        Picture picture = new Picture((250+(counter*50)),300, ("/KeyHealth/key-green-" + c + ".png"));
+        picture.draw();
+        pictures[counter] = picture;
+        counter++;
+    }
+
+    public void delete(){
+        for (int i = 0; i < pictures.length; i++) {
+            pictures[i].delete();
+        }
     }
 
     @Override
@@ -296,8 +278,9 @@ public class NamePlayer implements KeyboardHandler {
         return name;
     }
 
-    public int getCounter() {
-        return counter;
+
+    public boolean isFinish(){
+        return counter < 3;
     }
 }
 
