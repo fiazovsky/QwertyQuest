@@ -38,7 +38,6 @@ public class Score {
     private void fillPictures(int x, int y) {
         for (int i = 0; i < pictures.length; i++) {
             pictures[i] = new Picture(x, y, "/score/transition-highscore-" + i + ".png");
-            continue;
         }
     }
 
