@@ -33,27 +33,26 @@ public class Game {
 
     private boolean end;
 
-    private boolean zenMode;
+    public static boolean zenMode;
 
     private Picture currentRound;
 
 
-    public Game() {
-        Menu first = new StartMenu(this);
-         while (!start) {
-           try {
+    public void menuStart(){
+        new StartMenu(this);
+        while (!start) {
+            try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
-           }
+            }
         }
         if(end)
             new Credits();
         start();
-
     }
 
-    public void start() {
+    private void start() {
         start = false;
         close = false;
         gameOver = false;
@@ -65,7 +64,7 @@ public class Game {
             background = new Picture(10, 10, "/gameBG.png");
         background.draw();
         NamePlayer namePlayer = new NamePlayer();
-        while(namePlayer.getCounter() < 3){
+        while(namePlayer.isFinish()){
             try {
                 Thread.sleep(400);
             } catch (InterruptedException e) {
@@ -73,7 +72,8 @@ public class Game {
             }
         }
         System.out.println(namePlayer.getName());
-            player = new Player(namePlayer.getName(), zenMode);
+        namePlayer.delete();
+        player = new Player(namePlayer.getName(), zenMode);
             for (int i = 0; i < namePlayer.getName().length() ; i++){
                 Picture letterName = new Picture((270+(i*50)),30, ("/KeyHealth/key-green-" + namePlayer.getName().charAt(i) + ".png"));
                 letterName.draw();
@@ -170,8 +170,8 @@ public class Game {
     private void gameOver() {
         keysDelete();
         removeEnemies();
-        int score = player.getScore();
         Score highscore = new Score(player.getScore(), 420,330, "scoreBIG");
+        highscore.colorSelection(false);
         highscore.scorePrint();
         highscore.print(440, 430);
         try {

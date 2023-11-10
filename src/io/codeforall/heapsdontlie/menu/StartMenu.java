@@ -8,8 +8,8 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class StartMenu extends Menu implements KeyboardHandler {
-    Picture picture = new Picture(10, 10, "/startMenu.png");
-    Game game;
+    private Picture picture = new Picture(10, 10, "/startMenu.png");
+    private Game game;
     private boolean status;
 
     public StartMenu(Game game) {

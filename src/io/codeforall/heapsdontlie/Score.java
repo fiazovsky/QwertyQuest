@@ -18,10 +18,11 @@ public class Score {
 
     private List<Picture> writtenNumbers = new ArrayList<>();
 
-    boolean zen;
+    private String gameMode;
 
-    public Score(int score, int x, int y, String image, boolean zen) {
+    public Score(int score, int x, int y, String image) {
         this.score = score;
+        colorSelection(Game.zenMode);
         scoreImg = new Picture(x, y, "/score/" + image + ".png");
         scoreImg.draw();
         //  fillPictures();
@@ -37,19 +38,12 @@ public class Score {
 
     private void fillPictures(int x, int y) {
         for (int i = 0; i < pictures.length; i++) {
-            pictures[i] = new Picture(x, y, "/score/transition-highscore-" + i + ".png");
-            continue;
+            pictures[i] = new Picture(x, y, "/score/transition-"+ gameMode + "-"+  i + ".png");
         }
     }
 
     public void print(int x, int y) {
         int move = 0;
-       // fillPictures(x, y);
-       // if (list.size() == 0) {
-       //     pictures[0].draw();
-        //    writtenNumbers.add(pictures[0]);
-        //    return;
-       // }
         while (list.size() != 0) {
             int number = list.pollLast();
             fillPictures(x, y);
@@ -71,6 +65,16 @@ public class Score {
     public void setScoreImg(Picture picture){
         scoreImg.delete();
         scoreImg = picture;
+    }
+
+    public void colorSelection(boolean gameMode){
+        if(gameMode){
+            this.gameMode = "zen";
+            return;
+        }
+        this.gameMode = "score";
 
     }
+
+
 }
