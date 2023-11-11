@@ -15,7 +15,7 @@ public class KeyNormal extends Key{
     public void delete(Player player) {
         if(status) {
             picture.delete();
-            player.setScore();
+            new Thread(player::setScore).start();
             status = false;
         }
     }

@@ -18,10 +18,17 @@ public class Player {
     private Score scorePicture;
 
 
-    public Player(String name, boolean zen) {
+    public Player(String name) {
         this.health = 10;
         this.alive = true;
         this.name = name;
+        healthStart();
+        scorePicture = new Score(0);
+
+    }
+
+
+    private void healthStart(){
         healthPicture = new Picture[10];
         for (int i = 0; i < health; i++) {
             int current = i + 1;
@@ -29,12 +36,6 @@ public class Player {
             healthPicture[i] = picture;
         }
         currentHealth = healthPicture[health - 1];
-        currentHealth.draw();
-        if(!zen)
-        this.scorePicture = new Score(this.getScore(),860,40, "score");
-        else {
-            this.scorePicture = new Score(this.getScore(),860,40, "score-infinite");
-        }
     }
 
     public int getHealth() {
@@ -70,7 +71,7 @@ public class Player {
     }
 
     public void heal(int number) {
-        if (health == 10) {
+        if (health == 10 && number < 0) {
             return;
         }
         if (health == 9) {
@@ -100,5 +101,10 @@ public class Player {
 
     public String getName() {
         return name;
+    }
+
+    public void drawHealth(){
+        currentHealth.delete();
+        currentHealth.draw();
     }
 }

@@ -14,18 +14,13 @@ public class Score {
 
     private Picture[] pictures = new Picture[10];
 
-    private Picture scoreImg;
-
     private List<Picture> writtenNumbers = new ArrayList<>();
 
     private String gameMode;
 
-    public Score(int score, int x, int y, String image) {
+    public Score(int score) {
         this.score = score;
         colorSelection(Game.zenMode);
-        scoreImg = new Picture(x, y, "/score/" + image + ".png");
-        scoreImg.draw();
-        //  fillPictures();
     }
 
     public void scorePrint() {
@@ -62,10 +57,6 @@ public class Score {
             pics.delete();
         }
     }
-    public void setScoreImg(Picture picture){
-        scoreImg.delete();
-        scoreImg = picture;
-    }
 
     public void colorSelection(boolean gameMode){
         if(gameMode){
@@ -73,8 +64,6 @@ public class Score {
             return;
         }
         this.gameMode = "score";
-
     }
-
 
 }
