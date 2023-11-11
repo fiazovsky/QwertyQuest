@@ -257,7 +257,7 @@ public class NamePlayer implements KeyboardHandler {
 
     private void keyChosen(char c) {
         this.name = (name + c);
-        Picture picture = new Picture((250+(counter*50)),300, ("/KeyHealth/key-green-" + c + ".png"));
+        Picture picture = new Picture((250+(counter*50)),300, ("/name/nameLetter-zen-" + c + ".png"));
         picture.draw();
         pictures[counter] = picture;
         counter++;

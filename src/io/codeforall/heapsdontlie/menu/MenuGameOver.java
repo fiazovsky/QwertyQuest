@@ -47,6 +47,7 @@ public class MenuGameOver extends Menu implements KeyboardHandler {
                     status = false;
                     break;
                 case KeyboardEvent.KEY_N:
+                    status = false;
                     game.isEnd();
                     break;
                 case KeyboardEvent.KEY_S:

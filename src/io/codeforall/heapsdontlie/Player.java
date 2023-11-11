@@ -71,7 +71,7 @@ public class Player {
     }
 
     public void heal(int number) {
-        if (health == 10 && number < 0) {
+        if (health == 10 || number < 0) {
             return;
         }
         if (health == 9) {

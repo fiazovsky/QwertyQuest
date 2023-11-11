@@ -149,7 +149,7 @@ public class Game {
     private void gameOver() {
         keysDelete();
         removeEnemies();
-        new Picture(420,330,"/score/scoreBIG.png");
+        new Picture(420,330,"/score/scoreBIG.png").draw();
         Score highscore = new Score(player.getScore());
         highscore.colorSelection(false);
         highscore.scorePrint();
@@ -258,8 +258,14 @@ public class Game {
 
     private void createPlayerName(){
         for (int i = 0; i < player.getName().length() ; i++){
-            Picture letterName = new Picture((270+(i*50)),30, ("/KeyHealth/key-green-" + player.getName().charAt(i) + ".png"));
+            if(zenMode){
+            Picture letterName = new Picture((270+(i*50)),30, ("/name/nameLetter-zen-" + player.getName().charAt(i) + ".png"));
             letterName.draw();
+            continue;
+            }
+            Picture letterName = new Picture((270+(i*50)),30, ("/name/nameLetter-white-" + player.getName().charAt(i) + ".png"));
+            letterName.draw();
+            
         }
         player.drawHealth();
     }
