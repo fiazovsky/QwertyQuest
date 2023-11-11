@@ -24,7 +24,7 @@ public class KeyDamage extends Key{
     public void timesUP(Player player){
         if(status) {
             picture.delete();
-            player.setScore();
+            new Thread(player::setScore).start();
             status = false;
         }
     }

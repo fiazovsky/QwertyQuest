@@ -16,7 +16,7 @@ public class KeyHealth extends Key {
         if(status) {
             player.heal(2);
             picture.delete();
-            player.setScore();
+            new Thread(player::setScore).start();
             status = false;
         }
     }
@@ -32,4 +32,5 @@ public class KeyHealth extends Key {
     public Picture getPicture() {
         return picture;
     }
+
 }

@@ -18,7 +18,6 @@ import java.util.LinkedList;
 public class Game {
     private int numberOfKeysPerRound = 6;
     private ArrayList<Key> keys;
-
     private LinkedList<Enemies> enemies = new LinkedList<Enemies>();
 
     ArrayList<Enemies> removeList = new ArrayList<Enemies>();
@@ -26,21 +25,13 @@ public class Game {
     private int lvl;
 
     private Player player;
-
-    private boolean start;
-
-    private boolean close;
-
     private boolean end;
-
     public static boolean zenMode;
-
     private Picture currentRound;
 
-
     public void menuStart(){
-        new StartMenu(this);
-        while (!start) {
+        StartMenu startMenu = new StartMenu(this);
+        while (startMenu.end()) {
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
@@ -53,16 +44,10 @@ public class Game {
     }
 
     private void start() {
-        start = false;
-        close = false;
         gameOver = false;
-        Picture background;
         lvl = 1;
-        if(zenMode)
-            background = new Picture(10, 10, "/zenMode.png");
-        else
-            background = new Picture(10, 10, "/gameBG.png");
-        background.draw();
+        new Picture(10, 10, "/gameBG.png").draw();
+
         NamePlayer namePlayer = new NamePlayer();
         while(namePlayer.isFinish()){
             try {
@@ -73,13 +58,7 @@ public class Game {
         }
         System.out.println(namePlayer.getName());
         namePlayer.delete();
-        player = new Player(namePlayer.getName(), zenMode);
-            for (int i = 0; i < namePlayer.getName().length() ; i++){
-                Picture letterName = new Picture((270+(i*50)),30, ("/KeyHealth/key-green-" + namePlayer.getName().charAt(i) + ".png"));
-                letterName.draw();
-            }
-
-
+        player = new Player(namePlayer.getName());
         firstRound();
         while (!gameOver) {
             init();
@@ -170,7 +149,8 @@ public class Game {
     private void gameOver() {
         keysDelete();
         removeEnemies();
-        Score highscore = new Score(player.getScore(), 420,330, "scoreBIG");
+        new Picture(420,330,"/score/scoreBIG.png");
+        Score highscore = new Score(player.getScore());
         highscore.colorSelection(false);
         highscore.scorePrint();
         highscore.print(440, 430);
@@ -179,8 +159,8 @@ public class Game {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        Menu gameOver = new MenuGameOver(this);
-        while (!close) {
+        MenuGameOver gameOver = new MenuGameOver(this);
+        while (gameOver.end()) {
             try {
                 Thread.sleep(100);
             } catch (InterruptedException e) {
@@ -222,13 +202,6 @@ public class Game {
         }
     }
 
-    public void setStart() {
-        this.start = true;
-    }
-
-    public void setClose() {
-        this.close = true;
-    }
 
     public void zenMode() {
         zenMode = true;
@@ -253,14 +226,17 @@ public class Game {
         try {
             Picture round;
             if(!zenMode) {
+                new Picture(10, 10, "/gameBG.png").draw();
+                new Picture( 860, 40, "/score/score.png").draw();
                 round = new Picture(420, 320, "/transition/transition-round" + lvl + ".png");
                 currentRound = new Picture(65, 40, "/round/round" + lvl + ".png");
                 round.draw();
                 currentRound.draw();
                 Thread.sleep(1420);
-                // round.delete();
             }
             else{
+                new Picture(10, 10, "/zenMode.png").draw();
+                new Picture( 860, 40, "/score/score-infinite.png").draw();
                 round = new Picture(420, 320, "/transition/transition-infinite.png");
                 round.draw();
                 currentRound = new Picture(65, 40, "/round/round infinite.png");
@@ -268,6 +244,7 @@ public class Game {
                 Thread.sleep(1420);
             }
             round.delete();
+            createPlayerName();
             countDown();
         }
         catch (InterruptedException e) {
@@ -279,4 +256,11 @@ public class Game {
         end = true;
     }
 
+    private void createPlayerName(){
+        for (int i = 0; i < player.getName().length() ; i++){
+            Picture letterName = new Picture((270+(i*50)),30, ("/KeyHealth/key-green-" + player.getName().charAt(i) + ".png"));
+            letterName.draw();
+        }
+        player.drawHealth();
+    }
 }

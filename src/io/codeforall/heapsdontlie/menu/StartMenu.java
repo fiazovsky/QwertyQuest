@@ -44,17 +44,14 @@ public class StartMenu extends Menu implements KeyboardHandler {
         if (status){
             switch (keyboardEvent.getKey()) {
                 case KeyboardEvent.KEY_S:
-                  game.setStart();
                     status = false;
                     break;
                 case KeyboardEvent.KEY_Z:
                     game.zenMode();
-                    game.setStart();
                     status = false;
                     break;
                 case KeyboardEvent.KEY_E:
-                   game.isEnd();
-                    game.setStart();
+                    game.isEnd();
                     status = false;
                     break;
             }
@@ -69,5 +66,9 @@ public class StartMenu extends Menu implements KeyboardHandler {
     @Override
     public void keyReleased(KeyboardEvent keyboardEvent) {
 
+    }
+
+    public boolean end() {
+        return status;
     }
 }

@@ -8,8 +8,8 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class MenuGameOver extends Menu implements KeyboardHandler {
-    Picture picture = new Picture(10, 10, "/gameOverMenu.png");
-    Game game;
+    private Picture picture = new Picture(10, 10, "/gameOverMenu.png");
+    private Game game;
     private boolean status;
 
     public MenuGameOver(Game game) {
@@ -44,16 +44,13 @@ public class MenuGameOver extends Menu implements KeyboardHandler {
         if (status){
             switch (keyboardEvent.getKey()) {
                 case KeyboardEvent.KEY_Y:
-                    game.setClose();
                     status = false;
                     break;
                 case KeyboardEvent.KEY_N:
-                    game.setClose();
                     game.isEnd();
                     break;
                 case KeyboardEvent.KEY_S:
                     game.switchMode();
-                    game.setClose();
                     status = false;
                     break;
             }
@@ -68,5 +65,9 @@ public class MenuGameOver extends Menu implements KeyboardHandler {
     @Override
     public void keyReleased(KeyboardEvent keyboardEvent) {
 
+    }
+
+    public boolean end(){
+        return status;
     }
 }
