@@ -45,7 +45,9 @@ public class Game {
 
     private void start() {
         gameOver = false;
-        lvl = 1;
+        this.lvl = 1;
+        numberOfKeysPerRound = 6;
+
         new Picture(10, 10, "/gameBG.png").draw();
 
         NamePlayer namePlayer = new NamePlayer();
@@ -154,6 +156,9 @@ public class Game {
         highscore.colorSelection(false);
         highscore.scorePrint();
         highscore.print(440, 430);
+        Leaderboard leaderboard = new Leaderboard();
+        leaderboard.readFile(player);
+        leaderboard.write();
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {
@@ -265,7 +270,6 @@ public class Game {
             }
             Picture letterName = new Picture((270+(i*50)),30, ("/name/nameLetter-white-" + player.getName().charAt(i) + ".png"));
             letterName.draw();
-            
         }
         player.drawHealth();
     }
