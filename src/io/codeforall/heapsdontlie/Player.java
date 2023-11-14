@@ -49,12 +49,14 @@ public class Player {
         return score*12;
     }
     public void setScore(){
-        score++;
-        synchronized (scorePicture){
-        scorePicture.delete();
-        scorePicture.setScore(getScore());
-        scorePicture.scorePrint();
-        scorePicture.print(1020,30);
+        if (isAlive()){
+            score++;
+            synchronized (scorePicture) {
+                scorePicture.delete();
+                scorePicture.setScore(getScore());
+                scorePicture.scorePrint();
+                scorePicture.print(1020, 30);
+            }
         }
     }
 

@@ -45,7 +45,8 @@ public class Game {
 
     private void start() {
         gameOver = false;
-        lvl = 1;
+        this.lvl = 1;
+        numberOfKeysPerRound = 6;
         new Picture(10, 10, "/gameBG.png").draw();
 
         NamePlayer namePlayer = new NamePlayer();
@@ -154,6 +155,9 @@ public class Game {
         highscore.colorSelection(false);
         highscore.scorePrint();
         highscore.print(440, 430);
+        Learderboard learderboard = new Learderboard();
+        learderboard.readFile(player);
+        learderboard.write();
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {
