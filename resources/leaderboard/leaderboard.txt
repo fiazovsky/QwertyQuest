@@ -1,4 +1,8 @@
 qqq 108
+fia 48
+fia 24
+fia 24
 sof 24
+ssa 12
 qqq 12
 ppp 12

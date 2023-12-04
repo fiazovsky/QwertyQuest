@@ -47,7 +47,7 @@ public class Game {
         gameOver = false;
         this.lvl = 1;
         numberOfKeysPerRound = 6;
-        new Picture(10, 10, "/gameBG.png").draw();
+        new Picture(10, 10, "/insertNameBG.png").draw();
 
         NamePlayer namePlayer = new NamePlayer();
         while(namePlayer.isFinish()){
@@ -263,11 +263,11 @@ public class Game {
     private void createPlayerName(){
         for (int i = 0; i < player.getName().length() ; i++){
             if(zenMode){
-            Picture letterName = new Picture((270+(i*50)),30, ("/name/nameLetter-zen-" + player.getName().charAt(i) + ".png"));
+            Picture letterName = new Picture((700+(i*50)),1000, ("/name/nameLetter-zen-" + player.getName().charAt(i) + ".png"));
             letterName.draw();
             continue;
             }
-            Picture letterName = new Picture((270+(i*50)),30, ("/name/nameLetter-white-" + player.getName().charAt(i) + ".png"));
+            Picture letterName = new Picture((1070+(i*50)),650, ("/name/nameLetter-white-" + player.getName().charAt(i) + ".png"));
             letterName.draw();
             
         }
