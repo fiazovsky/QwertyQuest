@@ -1,4 +1,4 @@
-package io.codeforall.heapsdontlie;
+package io.codeforall.heapsdontlie.key.controls;
 
 public enum PossibleKeys {
     Q('q'),

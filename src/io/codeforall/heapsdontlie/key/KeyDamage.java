@@ -1,6 +1,6 @@
 package io.codeforall.heapsdontlie.key;
 
-import io.codeforall.heapsdontlie.Player;
+import io.codeforall.heapsdontlie.player.Player;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class KeyDamage extends Key{

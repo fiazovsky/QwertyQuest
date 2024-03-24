@@ -1,5 +1,6 @@
-package io.codeforall.heapsdontlie;
+package io.codeforall.heapsdontlie.player;
 
+import io.codeforall.heapsdontlie.scoreboard.Score;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Player {

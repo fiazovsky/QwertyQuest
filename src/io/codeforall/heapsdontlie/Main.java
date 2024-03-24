@@ -1,7 +1,6 @@
 package io.codeforall.heapsdontlie;
 
-import io.codeforall.heapsdontlie.menu.Menu;
-import io.codeforall.heapsdontlie.menu.StartMenu;
+import io.codeforall.heapsdontlie.game.Game;
 
 public class Main {
     public static void main(String[] args) {

@@ -1,22 +1,20 @@
-package io.codeforall.heapsdontlie;
+package io.codeforall.heapsdontlie.key.controls;
 
+import io.codeforall.heapsdontlie.key.Key;
+import io.codeforall.heapsdontlie.player.Player;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
-import org.academiadecodigo.simplegraphics.pictures.Picture;
 
-public class NamePlayer implements KeyboardHandler {
+public class Controls implements KeyboardHandler {
 
-    private int counter;
-    private String name;
+    Key key;
+    Player player;
 
-    private Picture[] pictures = new Picture[3];
-
-    public NamePlayer() {
-        counter = 0;
-        name= "";
-        init();
+    public Controls(Key key, Player player) {
+        this.key = key;
+        this.player = player;
     }
 
     public void init() {
@@ -153,134 +151,152 @@ public class NamePlayer implements KeyboardHandler {
         pressedM.setKey(KeyboardEvent.KEY_M);
         keyboard.addEventListener(pressedM);
 
-        KeyboardEvent pressedEnter = new KeyboardEvent();
-        pressedEnter.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
-        pressedEnter.setKey(KeyboardEvent.KEY_ENTER);
-        keyboard.addEventListener(pressedEnter);
-
-
     }
 
     @Override
     public void keyPressed(KeyboardEvent keyboardEvent) {
-        Picture picture;
-        if (isFinish()) {
-            switch (keyboardEvent.getKey()) {
-                case KeyboardEvent.KEY_Q:
-                    keyChosen('q');
-                    break;
-                case KeyboardEvent.KEY_W:
-                    keyChosen('w');
-                    break;
-                case KeyboardEvent.KEY_E:
-                    keyChosen('e');
-                    break;
-                case KeyboardEvent.KEY_R:
-                    keyChosen('r');
-                    break;
-                case KeyboardEvent.KEY_T:
-                    keyChosen('t');
-                    counter++;
-                    break;
-                case KeyboardEvent.KEY_Y:
-                    keyChosen('y');
-                    break;
-                case KeyboardEvent.KEY_U:
-                    keyChosen('u');
-                    break;
-                case KeyboardEvent.KEY_I:
-                    keyChosen('i');
-                    break;
-                case KeyboardEvent.KEY_O:
-                    keyChosen('o');
-                    break;
-                case KeyboardEvent.KEY_P:
-                    keyChosen('p');
-                    break;
-                case KeyboardEvent.KEY_A:
-                    keyChosen('a');
-                    break;
-                case KeyboardEvent.KEY_S:
-                    keyChosen('s');
-                    break;
-                case KeyboardEvent.KEY_D:
-                    keyChosen('d');
-                    break;
-                case KeyboardEvent.KEY_F:
-                    keyChosen('f');
-                    break;
-                case KeyboardEvent.KEY_G:
-                    keyChosen('g');
-                    break;
-                case KeyboardEvent.KEY_H:
-                    keyChosen('h');
-                    break;
-                case KeyboardEvent.KEY_J:
-                    keyChosen('j');
-                    break;
-                case KeyboardEvent.KEY_K:
-                    keyChosen('k');
-                    break;
-                case KeyboardEvent.KEY_L:
-                    keyChosen('l');
-                    break;
-                case KeyboardEvent.KEY_Z:
-                    keyChosen('z');
-                    break;
-                case KeyboardEvent.KEY_X:
-                    keyChosen('x');
-                    break;
-                case KeyboardEvent.KEY_C:
-                    keyChosen('c');
-                    break;
-                case KeyboardEvent.KEY_V:
-                    keyChosen('v');
-                    break;
-                case KeyboardEvent.KEY_B:
-                    keyChosen('b');
-                    break;
-                case KeyboardEvent.KEY_N:
-                    keyChosen('n');
-                    break;
-                case KeyboardEvent.KEY_M:
-                    keyChosen('m');
-                    break;
-
-                case KeyboardEvent.KEY_ENTER:
-                    if(name.equals(""))
-                        name = "aaa";
-                    counter = counter + 10;
-                    break;
-            }
+        switch (keyboardEvent.getKey()) {
+            case KeyboardEvent.KEY_Q:
+                if (key.getLetter() == 'q') {
+                    key.delete(player);
+                }
+                break;
+            case KeyboardEvent.KEY_W:
+                if (key.getLetter() == 'w') {
+                    key.delete(player);
+                }
+                break;
+            case KeyboardEvent.KEY_E:
+                if (key.getLetter() == 'e') {
+                    key.delete(player);
+                }
+                break;
+            case KeyboardEvent.KEY_R:
+                if (key.getLetter() == 'r') {
+                    key.delete(player);
+                }
+                break;
+            case KeyboardEvent.KEY_T:
+                if (key.getLetter() == 't') {
+                    key.delete(player);
+                }
+                break;
+            case KeyboardEvent.KEY_Y:
+                if (key.getLetter() == 'y') {
+                    key.delete(player);
+                }
+                break;
+            case KeyboardEvent.KEY_U:
+                if (key.getLetter() == 'u') {
+                    key.delete(player);
+                }
+                break;
+            case KeyboardEvent.KEY_I:
+                if (key.getLetter() == 'i') {
+                    key.delete(player);
+                }
+                break;
+            case KeyboardEvent.KEY_O:
+                if (key.getLetter() == 'o') {
+                    key.delete(player);
+                }
+                break;
+            case KeyboardEvent.KEY_P:
+                if (key.getLetter() == 'p') {
+                    key.delete(player);
+                }
+                break;
+            case KeyboardEvent.KEY_A:
+                if (key.getLetter() == 'a') {
+                    key.delete(player);
+                }
+                break;
+            case KeyboardEvent.KEY_S:
+                if (key.getLetter() == 's') {
+                    key.delete(player);
+                }
+                break;
+            case KeyboardEvent.KEY_D:
+                if (key.getLetter() == 'd') {
+                    key.delete(player);
+                }
+                break;
+            case KeyboardEvent.KEY_F:
+                if (key.getLetter() == 'f') {
+                    key.delete(player);
+                }
+                break;
+            case KeyboardEvent.KEY_G:
+                if (key.getLetter() == 'g') {
+                    key.delete(player);
+                }
+                break;
+            case KeyboardEvent.KEY_H:
+                if (key.getLetter() == 'h') {
+                    key.delete(player);
+                }
+                break;
+            case KeyboardEvent.KEY_J:
+                if (key.getLetter() == 'j') {
+                    key.delete(player);
+                }
+                break;
+            case KeyboardEvent.KEY_K:
+                if (key.getLetter() == 'k') {
+                    key.delete(player);
+                }
+                break;
+            case KeyboardEvent.KEY_L:
+                if (key.getLetter() == 'l') {
+                    key.delete(player);
+                }
+                break;
+            case KeyboardEvent.KEY_Z:
+                if (key.getLetter() == 'z') {
+                    key.delete(player);
+                }
+                break;
+            case KeyboardEvent.KEY_X:
+                if (key.getLetter() == 'x') {
+                    key.delete(player);
+                }
+                break;
+            case KeyboardEvent.KEY_C:
+                if (key.getLetter() == 'c') {
+                    key.delete(player);
+                }
+                break;
+            case KeyboardEvent.KEY_V:
+                if (key.getLetter() == 'v') {
+                    key.delete(player);
+                }
+                break;
+            case KeyboardEvent.KEY_B:
+                if (key.getLetter() == 'b') {
+                    key.delete(player);
+                }
+                break;
+            case KeyboardEvent.KEY_N:
+                if (key.getLetter() == 'n') {
+                    key.delete(player);
+                }
+                break;
+            case KeyboardEvent.KEY_M:
+                if (key.getLetter() == 'm') {
+                    key.delete(player);
+                }
+                break;
         }
-    }
-
-    private void keyChosen(char c) {
-        this.name = (name + c);
-        Picture picture = new Picture((525+(counter*97)),230, ("/name/nameLetter-white-" + c + ".png"));
-        picture.draw();
-        pictures[counter] = picture;
-        counter++;
-    }
-
-    public void delete(){
-        for (int i = 0; i < pictures.length; i++) {
-            pictures[i].delete();
+        try {
+            this.finalize();
+        } catch (Throwable e) {
+            throw new RuntimeException(e);
         }
     }
 
     @Override
     public void keyReleased(KeyboardEvent keyboardEvent) {
 
-    }
-
-    public String getName() {
-        return name;
-    }
-
-
-    public boolean isFinish(){
-        return counter < 3;
     }
 }
 

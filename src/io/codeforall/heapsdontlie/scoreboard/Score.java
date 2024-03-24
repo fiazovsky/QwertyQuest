@@ -1,5 +1,6 @@
-package io.codeforall.heapsdontlie;
+package io.codeforall.heapsdontlie.scoreboard;
 
+import io.codeforall.heapsdontlie.game.Game;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 import java.util.ArrayList;

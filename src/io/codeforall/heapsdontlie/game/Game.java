@@ -1,18 +1,17 @@
-package io.codeforall.heapsdontlie;
+package io.codeforall.heapsdontlie.game;
 
 import io.codeforall.heapsdontlie.key.Key;
+import io.codeforall.heapsdontlie.key.controls.Controls;
 import io.codeforall.heapsdontlie.menu.Credits;
-import io.codeforall.heapsdontlie.menu.Menu;
 import io.codeforall.heapsdontlie.menu.MenuGameOver;
 import io.codeforall.heapsdontlie.menu.StartMenu;
+import io.codeforall.heapsdontlie.player.NamePlayer;
+import io.codeforall.heapsdontlie.player.Player;
+import io.codeforall.heapsdontlie.scoreboard.Learderboard;
+import io.codeforall.heapsdontlie.scoreboard.Score;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Deque;
 import java.util.LinkedList;
 
 public class Game {

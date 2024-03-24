@@ -1,5 +1,6 @@
-package io.codeforall.heapsdontlie;
+package io.codeforall.heapsdontlie.game;
 
+import io.codeforall.heapsdontlie.key.controls.PossibleKeys;
 import io.codeforall.heapsdontlie.key.Key;
 import io.codeforall.heapsdontlie.key.KeyDamage;
 import io.codeforall.heapsdontlie.key.KeyHealth;

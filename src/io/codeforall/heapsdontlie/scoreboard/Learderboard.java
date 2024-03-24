@@ -1,4 +1,6 @@
-package io.codeforall.heapsdontlie;
+package io.codeforall.heapsdontlie.scoreboard;
+
+import io.codeforall.heapsdontlie.player.Player;
 
 import java.io.*;
 

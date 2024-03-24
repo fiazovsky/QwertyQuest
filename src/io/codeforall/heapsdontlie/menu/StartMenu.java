@@ -1,6 +1,6 @@
 package io.codeforall.heapsdontlie.menu;
 
-import io.codeforall.heapsdontlie.Game;
+import io.codeforall.heapsdontlie.game.Game;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
